@@ -455,7 +455,7 @@ describe('Donate', () => {
         expect(response.status).toBe(500);
       });
 
-      it('should return 500 if subsciption is not active', async () => {
+      it('should return 500 if subscription is not active', async () => {
         mockSubRetrieve.mockImplementationOnce(() =>
           Promise.resolve({
             ...mockSubRetrieveObj,

@@ -69,12 +69,12 @@ describe('certificate routes', () => {
           method: 'PUT',
           setCookies
         }).send({
-          certSlug: 'non-existant'
+          certSlug: 'non-existent'
         });
         expect(response.body).toMatchObject({
           response: {
             message: 'flash.wrong-name',
-            variables: { name: 'non-existant' }
+            variables: { name: 'non-existent' }
           }
         });
         expect(response.status).toBe(400);

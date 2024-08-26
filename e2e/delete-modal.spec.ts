@@ -92,7 +92,7 @@ test.describe('Delete Modal component', () => {
     ).not.toBeVisible();
   });
 
-  test('Delele button should be disabled if user incorrectly fills verify input text', async ({
+  test('Delete button should be disabled if user incorrectly fills verify input text', async ({
     page
   }) => {
     await page

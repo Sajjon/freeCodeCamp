@@ -638,7 +638,7 @@ function createExamChallengeCompleted(app) {
       if (!examFromDb) {
         res.status(500);
         throw new Error(
-          `An error occurred tryng to get the exam from the database.`
+          `An error occurred trying to get the exam from the database.`
         );
       }
 

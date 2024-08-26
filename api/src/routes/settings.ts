@@ -26,7 +26,7 @@ import { isRestricted } from './helpers/is-restricted';
 
 const { isEmail } = validator;
 
-type WaitMesssageArgs = {
+type WaitMessageArgs = {
   sentAt: Date | null;
   now?: Date;
 };
@@ -40,7 +40,7 @@ type WaitMesssageArgs = {
  * @param param.now The current date.
  * @returns The message to display to the user.
  */
-export function getWaitMessage({ sentAt, now = new Date() }: WaitMesssageArgs) {
+export function getWaitMessage({ sentAt, now = new Date() }: WaitMessageArgs) {
   const minutesLeft = getWaitPeriod({ sentAt, now });
   if (minutesLeft <= 0) return null;
 
@@ -48,7 +48,7 @@ export function getWaitMessage({ sentAt, now = new Date() }: WaitMesssageArgs) {
   return `Please wait ${timeToWait} to resend an authentication link.`;
 }
 
-function getWaitPeriod({ sentAt, now }: Required<WaitMesssageArgs>) {
+function getWaitPeriod({ sentAt, now }: Required<WaitMessageArgs>) {
   if (sentAt == null) return 0;
   return 5 - differenceInMinutes(now, sentAt);
 }
@@ -269,7 +269,7 @@ ${isLinkSentWithinLimitTTL}`
         });
 
         // TODO: combine emailVerifyTTL and emailAuthLinkTTL? I'm not sure why
-        // we need emailVeriftyTTL given that the main thing we want is to
+        // we need emailVerifyTTL given that the main thing we want is to
         // restrict the rate of attempts and the emailAuthLinkTTL already does
         // that.
         const tooManyRequestsMessage = getWaitMessage({

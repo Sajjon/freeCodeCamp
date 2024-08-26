@@ -273,7 +273,7 @@ test.describe('Completion modal should be shown after submitting a project', () 
   });
 });
 
-test.describe('Should not be able to submit in quick succesion', () => {
+test.describe('Should not be able to submit in quick succession', () => {
   test('should not be possible to submit twice in quick succession', async ({
     page
   }) => {
